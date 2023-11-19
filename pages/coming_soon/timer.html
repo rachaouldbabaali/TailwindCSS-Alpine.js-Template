@@ -11,6 +11,45 @@
       [x-cloak] {
         display: none !important;
       }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-charcter {
+        text-transform: uppercase;
+        background-image: linear-gradient(
+          -225deg,
+          #1d1d1d 0%,
+          #7a102a 29%,
+          #f5ecef 67%,
+          #ff0000 100%
+        );
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        color: black;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 3s linear infinite;
+        display: inline-block;
+      }
+
+      @keyframes textclip {
+        to {
+          background-position: -200% center;
+        }
+      }
     </style>
 
     <!-- Scripts -->
@@ -26,7 +65,7 @@
   </head>
   <body>
     <div
-      class="w-full h-screen flex items-center justify-center"
+      class="w-full h-full flex items-center justify-center"
       style="
         background: linear-gradient(60deg, #0b0b0b, #a00909);
         color: white;
@@ -34,7 +73,7 @@
         font-family: 'Arial', sans-serif;
       "
     >
-      <div class="w-full h-screen bg-black bg-opacity-70">
+      <div class="w-full h-full bg-black bg-opacity-70">
         <div
           class="w-full h-full flex flex-col items-center justify-center container mx-auto py-8 px-8 lg:px-4 xl:px-0"
         >
@@ -45,77 +84,43 @@
               class="w-56 h-56"
             />
           </div>
+          <div class="flex items-center justify-center">
+            <h3
+              class="text-xl lg:text-2xl xl:text-3xl text-gray-200 tracking-wider font-bold font-serif mt-2 text-center animate-charcter"
+            >
+              The Ultimate Gaming Destination
+            </h3>
+          </div>
           <div class="flex flex-col items-center justify-center">
             <h1
               class="text-6xl lg:text-7xl xl:text-8xl text-gray-200 tracking-wider font-bold font-serif mt-12 text-center"
             >
-              We Are <span class="text-yellow-300">Coming</span> Soon
+                We Are <span class="bg-gradient-to-l from-rose-600 to-yellow-600 text-transparent bg-clip-text">Coming</span> Soon
             </h1>
 
             <div class="mt-12 flex flex-col items-center mt-8 ml-2">
-              <p class="text-gray-300 uppercase text-sm">
-                Time left until lunching
-              </p>
-              <div
-                class="flex items-center justify-center space-x-4 mt-4"
-                x-data="timer(new Date('2023-11-24T00:00:00').getTime())"
-                x-init="init();"
-              >
-                <div class="flex flex-col items-center px-4">
-                  <span
-                    x-text="time().days"
-                    class="text-4xl lg:text-5xl text-gray-200"
-                  ></span>
-                  <span class="text-gray-400 mt-2">Days</span>
-                </div>
-                <span class="w-[1px] h-24 bg-gray-400"></span>
-                <div class="flex flex-col items-center px-4">
-                  <span
-                    x-text="time().hours"
-                    class="text-4xl lg:text-5xl text-gray-200"
-                  ></span>
-                  <span class="text-gray-400 mt-2">Hours</span>
-                </div>
-                <span class="w-[1px] h-24 bg-gray-400"></span>
-                <div class="flex flex-col items-center px-4">
-                  <span
-                    x-text="time().minutes"
-                    class="text-4xl lg:text-5xl text-gray-200"
-                  ></span>
-                  <span class="text-gray-400 mt-2">Minutes</span>
-                </div>
-                <span class="w-[1px] h-24 bg-gray-400"></span>
-                <div class="flex flex-col items-center px-4">
-                  <span
-                    x-text="time().seconds"
-                    class="text-4xl lg:text-5xl text-gray-200"
-                  ></span>
-                  <span class="text-gray-400 mt-2">Seconds</span>
-                </div>
-              </div>
+              <img
+                src="./../../assets/img/disconnected.original.png"
+                alt="settings"
+                class="h-48 animate-pulse"
+              />
             </div>
-            <div class="flex flex-col items-center space-y-4 mt-16 px-6">
-              <p class="text-gray-300 uppercase text-sm">
-                Notify me when it's ready
+
+            <div>
+              <p
+                class="text-gray-200 text-center text-l lg:text-xl xl:text-2xl mt-12 mx-auto"
+                style="max-width: 1150px"
+              >
+                Leveling up our gaming zone! 🚧🎮 We're currently undergoing
+                some epic construction to enhance your gaming experience. Please
+                power down for now and return later for an upgraded adventure!
+                ⚙️🔧
               </p>
-              <form class="w-full flex items-center">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="w-72 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded-tl rounded-bl text-sm"
-                  placeholder="Email"
-                  autocomplete="off"
-                />
-                <button
-                  class="bg-sky-600 py-1 px-6 text-gray-100 border border-cyan-600 rounded-tr rounded-br text-sm"
-                >
-                  Subscribe
-                </button>
-              </form>
             </div>
           </div>
-          <div class="w-full flex items-center justify-center md:justify-end mt-24">
+          <div
+            class="w-full flex items-center justify-center md:justify-end mt-24"
+          >
             <ul class="flex items-center space-x-4">
               <li>
                 <a
@@ -163,6 +168,29 @@
                   >
                     <path
                       d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/showcase/gamingzonedz/"
+                  title="LinkedIn"
+                  target="_blank"
+                >
+                  <svg
+                    class="w-8 h-8 hover:scale-110 transition duration-300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 333333 333333"
+                    shape-rendering="geometricPrecision"
+                    text-rendering="geometricPrecision"
+                    image-rendering="optimizeQuality"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  >
+                    <path
+                      d="M166667 0c92048 0 166667 74619 166667 166667s-74619 166667-166667 166667S0 258715 0 166667 74619 0 166667 0zm-18220 138885h28897v14814l418 1c4024-7220 13865-14814 28538-14814 30514-1 36157 18989 36157 43691v50320l-30136 1v-44607c0-10634-221-24322-15670-24322-15691 0-18096 11575-18096 23548v45382h-30109v-94013zm-20892-26114c0 8650-7020 15670-15670 15670s-15672-7020-15672-15670 7022-15670 15672-15670 15670 7020 15670 15670zm-31342 26114h31342v94013H96213v-94013z"
+                      fill="#e2e8f0"
                     />
                   </svg>
                 </a>
