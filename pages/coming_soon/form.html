@@ -109,9 +109,7 @@
                 </svg>
                 Instagram
             </a>
-            <span x-show="instagramShared" class="text-green-500 ml-2"
-              >Shared!</span
-            >
+            
           </div>
 
           <div>
@@ -174,12 +172,9 @@
           phone: '',
           email: '',
           instagramId: '',
-          instagramShared: false,
           points: 0,
           addPoints() {
-              console.log(this.points, 'points');
             this.points += 1;
-            console.log(this.points, 'points');
           },
         };
       </script>
